@@ -39,7 +39,9 @@ is_cliente(X) :-
     ).
 
 cliente :-
-    menu_principal, nl,
+    check_pessoa,
+    nl, menu_principal, nl,
+
     write('Escolha uma opção: '),
     read(O),
     shell('clear'),
@@ -54,6 +56,15 @@ cliente :-
                     O = 6 ->
                         finalizar;
                         opcao_invalida).
+                        
+check_pessoa :-
+    write('Pessoa fisica ou juridica? (f/j): '),
+    read(P),
+    (P = 'f' ->
+        write('CPF: ');
+        P = 'j' ->
+            write('CNPJ: ');
+            opcao_invalida).
 
 opcao_invalida :-
     shell('clear'),
