@@ -27,3 +27,8 @@ mulher(pam).
 mulher(maria).
 mulher(rafaela).
 homem(daniel).
+
+exibir_lista([]). % caso base: lista vazia
+exibir_lista([X|Resto]) :- % X é a cabeça da lista, Resto é a cauda
+    writeln(X), % imprime o elemento X
+    exibir_lista(Resto). % chama recursivamente para o restante da lista
