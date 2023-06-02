@@ -1,3 +1,5 @@
+opcoes diferentes de sim eh considerado nao
+
 # chatbot
 
 ideia do que fazer
