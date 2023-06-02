@@ -42,17 +42,14 @@ cliente :-
     menu_principal, nl,
     write('Escolha uma opção: '),
     read(O),
+    shell('clear'),
     (O = 1 ->
-        shell('clear'),
         write('Comercial');
         O = 2 ->
-            shell('clear'),
             write('Financeiro');
             O = 3 ->
-                shell('clear'),
                 write('Autorização de Guias');
                 O = 4 ->
-                    shell('clear'),
                     write('Manifestações');
                     O = 6 ->
                         finalizar;
