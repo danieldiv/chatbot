@@ -26,5 +26,8 @@ op_manifestacoes(41, 'Elogio').
 op_manifestacoes(42, 'Reclamacao').
 op_manifestacoes(43, 'Sugestoes').
 
+op_geral(s, 'Sair').
+op_geral(v, 'Voltar').
+
 tipo_pessoa(f, fisica).
 tipo_pessoa(j, juridica).

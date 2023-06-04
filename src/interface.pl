@@ -11,6 +11,7 @@ resposta(_, "Desculpe, não entendi o que você disse.", _).
 menu(Predicao, Opcao) :-
     nl, writeln('Selecione uma opção: '),
     imprimir_valores(Predicao),
+    imprimir_valores(op_geral),
     read(Opcao),
     resposta(Opcao, Descricao, Predicao),
     nl, writeln(Descricao).
