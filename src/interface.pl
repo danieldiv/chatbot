@@ -12,14 +12,15 @@ resposta(Opcao, Res, Predicado) :-
     call(Predicado, Opcao, Res).
 resposta(_, "Desculpe, não entendi o que você disse.", _).
 
-menu(Predicao, Opcao) :-
+menu(Predicado, Opcao) :-
     nl, writeln('Selecione uma opção: '),
-    imprimir_valores(Predicao), nl,
+    imprimir_valores(Predicado), nl,
     imprimir_valores(op_geral),
     read(Opcao),
 
     (Opcao = s -> finalizar;
-        resposta(Opcao, Descricao, Predicao),
+        Opcao = v -> menu_principal;
+        resposta(Opcao, Descricao, Predicado),
         nl, writeln(Descricao)
     ).
 
