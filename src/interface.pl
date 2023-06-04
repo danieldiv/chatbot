@@ -1,3 +1,7 @@
+finalizar :-
+    nl, writeln('Obrigado por utilizar o sistema de atendimento MIDAS!'),
+    halt.
+
 imprimir_valores(Tipo) :-
     call(Tipo, Chave, Valor),
     write(Chave), write(" - "), writeln(Valor),
@@ -10,11 +14,14 @@ resposta(_, "Desculpe, não entendi o que você disse.", _).
 
 menu(Predicao, Opcao) :-
     nl, writeln('Selecione uma opção: '),
-    imprimir_valores(Predicao),
+    imprimir_valores(Predicao), nl,
     imprimir_valores(op_geral),
     read(Opcao),
-    resposta(Opcao, Descricao, Predicao),
-    nl, writeln(Descricao).
+
+    (Opcao = s -> finalizar;
+        resposta(Opcao, Descricao, Predicao),
+        nl, writeln(Descricao)
+    ).
 
 menu_comercial :-
     menu(op_comercial, Opcao),
@@ -74,15 +81,13 @@ menu_manifestacoes :-
 
 menu_principal :-
     menu(op_principal, Opcao),
-    (Opcao = 5 -> halt;
-        (Opcao = 1 ->
-            menu_comercial;
-            Opcao = 2 ->
-                menu_financeiro;
-                Opcao = 3 ->
-                    menu_auto_guia;
-                    Opcao = 4 ->
-                        menu_manifestacoes;
-                        menu_principal
-        )
+    (Opcao = 1 ->
+        menu_comercial;
+        Opcao = 2 ->
+            menu_financeiro;
+            Opcao = 3 ->
+                menu_auto_guia;
+                Opcao = 4 ->
+                    menu_manifestacoes;
+                    menu_principal
     ).

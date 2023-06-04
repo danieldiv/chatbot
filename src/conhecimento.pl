@@ -2,7 +2,7 @@ op_principal(1, 'Comercial').
 op_principal(2, 'Financeiro').
 op_principal(3, 'Autorizacao guias').
 op_principal(4, 'Manifestacoes').
-op_principal(5, 'Finalizar').
+% op_principal(5, 'Finalizar').
 
 op_comercial(11, 'Carencia do plano').
 op_comercial(12, 'Publicidade').
