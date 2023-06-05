@@ -2,15 +2,13 @@
 :- use_module(library(process)).
 
 :- consult('conhecimento.pl').
+:- consult('informacoes.pl').
 :- consult('interface.pl').
 
 pause(Seconds) :- sleep(Seconds).
 
 cliente :-
-    write('Pessoa fisica ou juridica? (f/j): '),
-    read(P),
-    resposta(P, Tipo, tipo_pessoa), nl,
-
+    check_pessoa(Tipo),
     (Tipo = fisica ->
         writeln('Informe o CPF: ');
         Tipo = juridica ->
@@ -19,11 +17,32 @@ cliente :-
             cliente
     ).
 
+not_cliente :-
+    nl, writeln('O que deseja fazer?'),
+    writeln('1 - Guia médico'),
+    writeln('2 - Cadastro'),
+    writeln('s - Sair'),
+    writeln('v - Voltar'),
+    read(Opcao),
+
+    (Opcao = 1 ->
+        informacoes;
+        Opcao = 2 ->
+            cadastro;
+            Opcao = s ->
+                finalizar;
+                Opcao = v ->
+                    main;
+                    writeln('Desculpe, não entendi o que você disse.')
+    ),
+    not_cliente.
+
 is_cliente(X) :-
     (X = 's' ->
         cliente,
         menu_principal;
-        writeln('não cliente')
+        X = 'n' -> not_cliente;
+        writeln('Desculpe, não entendi o que você disse.')
     ).
 
 main :-

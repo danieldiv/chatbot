@@ -1,7 +1,3 @@
-finalizar :-
-    nl, writeln('Obrigado por utilizar o sistema de atendimento MIDAS!'),
-    halt.
-
 imprimir_valores(Tipo) :-
     call(Tipo, Chave, Valor),
     write(Chave), write(" - "), writeln(Valor),

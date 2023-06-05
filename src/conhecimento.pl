@@ -30,3 +30,12 @@ op_geral(v, 'Voltar').
 
 tipo_pessoa(f, fisica).
 tipo_pessoa(j, juridica).
+
+tipo_plano(1, 'Individual').
+tipo_plano(2, 'Familiar').
+
+tipo_hospedagem(1, 'Apartamento').
+tipo_hospedagem(2, 'Enfermaria').
+
+cpf('12345678900').
+cnpj('12345678900000').
